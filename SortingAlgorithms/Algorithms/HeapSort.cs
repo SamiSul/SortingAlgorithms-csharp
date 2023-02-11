@@ -7,6 +7,7 @@ public static class HeapSort
         if (size == 0) return;
 
         // item / 2 - 1 gets the parent of the node
+        // we build the max heap
         for (var i = size / 2 - 1; i >= 0; i--)
         {
             Heapify(nums, size, i);
@@ -14,6 +15,8 @@ public static class HeapSort
 
         for (var i = size; i >= 0; i--)
         {
+            // we place the root element at the end of where we are
+            // and rebuild the max heap
             (nums[0], nums[i]) = (nums[i], nums[0]);
             Heapify(nums, i, 0);
         }
