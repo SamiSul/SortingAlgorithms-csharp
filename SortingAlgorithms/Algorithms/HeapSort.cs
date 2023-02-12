@@ -43,4 +43,43 @@ public static class HeapSort
 
         Heapify(array, size, largestIndex);
     }
+
+    // My try without looking
+    public static void MySort(int[] nums, int size)
+    {
+        // return if array has 1 element
+        if (size == 0) return;
+
+        // build max heap. start with the last non-leaf element
+        for (var i = size / 2 - 1; i >= 0; i--) Heapify(nums, size, i);
+
+        for (var i = size; i >= 0; i--)
+        {
+            // swap first (largest) and last element in the array
+            (nums[i], nums[0]) = (nums[0], nums[i]);
+            //rebuild the max heap, excluding the last element (after swapping)
+            MyHeapify(nums, i, 0);
+        }
+    }
+
+    static void MyHeapify(int[] nums, int size, int index)
+    {
+        var largest = index;
+        var leftChild = index * 2 + 1;
+        var rightChild = index * 2 + 2;
+
+        // check if the children of the node have a bigger value
+        // and swap them if so
+        if (leftChild < size && nums[leftChild] > nums[largest]) largest = leftChild;
+        if (rightChild < size && nums[rightChild] > nums[largest]) largest = rightChild;
+        
+        // or return if not
+        if (largest == index) return;
+        
+        // swap parent and child
+        (nums[largest], nums[index]) = (nums[index], nums[largest]);
+        
+        // build max heap starting with the child
+        MyHeapify(nums,size, largest);
+    }
 }
