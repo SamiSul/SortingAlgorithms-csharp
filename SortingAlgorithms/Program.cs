@@ -7,7 +7,7 @@ int[] array = { 73, 57, 49, 99, 133, 20, 1 };
 // BubbleSort.SortWithRecursion(array);
 // SelectionSort.MySort(array);
 // HeapSort.MySort(array, array.Length - 1);
-MergeSort.MySort(array, 0, array.Length - 1);
+MergeSort.Sort(array, 0, array.Length - 1);
 
 // print sorted list
 foreach (var i in array)
