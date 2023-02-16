@@ -51,7 +51,7 @@ public static class HeapSort
         if (size == 0) return;
 
         // build max heap. start with the last non-leaf element
-        for (var i = size / 2 - 1; i >= 0; i--) Heapify(nums, size, i);
+        for (var i = size / 2 - 1; i >= 0; i--) MyHeapify(nums, size, i);
 
         for (var i = size; i >= 0; i--)
         {
